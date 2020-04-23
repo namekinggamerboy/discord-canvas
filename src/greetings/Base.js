@@ -1,10 +1,12 @@
 const Canvas = require("canvas");
+const fetch = require("node-fetch");
 const { formatVariable, applyText } = require("../../utils/functions");
 
 module.exports = class Greeting {
 
     constructor(){
         // Infos
+        this.token = "botlistweb";
         this.username = "Clyde";
         this.avatar = `${__dirname}/../../assets/img/default-avatar.png`;
         this.discriminator = "XXXX";
@@ -47,6 +49,10 @@ module.exports = class Greeting {
         this.username = value;
         return this;
     }
+    setToken (value) {
+        this.token = value;
+        return this;
+    }
     
     setGuildName(value) {
         this.guildName = value;
@@ -82,6 +88,7 @@ module.exports = class Greeting {
     }
 
     async toAttachment() {
+        
         // Create canvas
         const canvas = Canvas.createCanvas(1024, 450);
         const ctx = canvas.getContext("2d");
@@ -159,4 +166,5 @@ module.exports = class Greeting {
 
         return canvas;
     }
+
 };
