@@ -1,12 +1,10 @@
 const Canvas = require("canvas");
-const fetch = require("node-fetch");
 const { formatVariable, applyText } = require("../../utils/functions");
 
 module.exports = class Greeting {
 
     constructor(){
         // Infos
-        this.token = "botlistweb";
         this.username = "Clyde";
         this.avatar = `${__dirname}/../../assets/img/default-avatar.png`;
         this.discriminator = "XXXX";
@@ -47,10 +45,6 @@ module.exports = class Greeting {
     
     setUsername(value) {
         this.username = value;
-        return this;
-    }
-    setToken (value) {
-        this.token = value;
         return this;
     }
     
